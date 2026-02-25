@@ -3,19 +3,26 @@ public class PalindromeCheckerApp {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
 
+        String input = "radar";
+        char[] chars = input.toCharArray();
 
-        String input = "madam";
-        String reversed = "";
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
 
-        // Iterate from the last character to the first
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-        System.out.println("\nInput String: " + input);
-        System.out.println("Reversed String: " + reversed);
+        System.out.println("\n--- UC4: Character Array Check ---");
+        System.out.println("Input String: " + input);
 
-        if (input.equalsIgnoreCase(reversed)) {
+        if (isPalindrome) {
             System.out.println("Result: The string is a PALINDROME.");
         } else {
             System.out.println("Result: The string is NOT a PALINDROME.");
